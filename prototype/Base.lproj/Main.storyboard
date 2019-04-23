@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="PIR-Z4-nOi">
             <objects>
-                <viewController id="hYy-VF-37l" sceneMemberID="viewController">
+                <viewController id="hYy-VF-37l" customClass="LoginViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CN1-jY-DCX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,6 +34,7 @@
                                 <rect key="frame" x="168.5" y="318.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="loginButtonClicked:" destination="hYy-VF-37l" eventType="touchUpInside" id="lxP-JI-i2T"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="LoginSeque" id="Pf0-z3-Cjr"/>
                                 </connections>
                             </button>
@@ -62,6 +63,11 @@
                         <viewLayoutGuide key="safeArea" id="E3n-7G-UEW"/>
                     </view>
                     <navigationItem key="navigationItem" id="BP3-aj-p8B"/>
+                    <connections>
+                        <outlet property="loginButton" destination="7Nz-VR-IrN" id="hsR-QC-fS0"/>
+                        <outlet property="passwordTextField" destination="uug-AC-aCI" id="hYR-lF-7Jk"/>
+                        <outlet property="usernameTextField" destination="Ox3-X8-68m" id="0hN-85-vi2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRV-yg-yQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

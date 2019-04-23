@@ -16,6 +16,9 @@ class ViewController: UIViewController , WKNavigationDelegate{
     var rawHtml = ""
     var classes: [SchoolClass] = []
     var classLength = -1
+    
+    var student = Student()
+    
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -57,8 +60,8 @@ class ViewController: UIViewController , WKNavigationDelegate{
         //print("loaded \(pageNumber)")
         switch(pageNumber){
         case 0:
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"Bradford.Q.T\"", completionHandler: nil)
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"famoustrumpet1\"", completionHandler: nil)
+            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"\(student.username))\"", completionHandler: nil)
+            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"\(student.password)\"", completionHandler: nil)
             webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()" , completionHandler: nil)
             break
         case 1:
@@ -105,6 +108,14 @@ class ViewController: UIViewController , WKNavigationDelegate{
     }
 
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "LoginSegue"){
+            let loginViewController = sender as! LoginViewController
+            student = loginViewController.student
+        }
+        
+    }
+    
 }
 
     

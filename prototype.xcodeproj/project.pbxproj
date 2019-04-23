@@ -15,6 +15,8 @@
 		A1843BE32151CEA500DC79FD /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BE22151CEA500DC79FD /* prototypeTests.swift */; };
 		A1843BEE2151CEA500DC79FD /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BED2151CEA500DC79FD /* prototypeUITests.swift */; };
 		A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF2A2D2153283F0028A93F /* SchoolClass.swift */; };
+		DE368647226F77A000466CD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE368646226F77A000466CD5 /* LoginViewController.swift */; };
+		DE368649226F781600466CD5 /* Studet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE368648226F781600466CD5 /* Studet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A1843BED2151CEA500DC79FD /* prototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeUITests.swift; sourceTree = "<group>"; };
 		A1843BEF2151CEA500DC79FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BF2A2D2153283F0028A93F /* SchoolClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolClass.swift; sourceTree = "<group>"; };
+		DE368646226F77A000466CD5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DE368648226F781600466CD5 /* Studet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Studet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				A1843BD62151CEA500DC79FD /* LaunchScreen.storyboard */,
 				A1843BD92151CEA500DC79FD /* Info.plist */,
 				A1BF2A2D2153283F0028A93F /* SchoolClass.swift */,
+				DE368646226F77A000466CD5 /* LoginViewController.swift */,
+				DE368648226F781600466CD5 /* Studet.swift */,
 			);
 			path = prototype;
 			sourceTree = "<group>";
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE368647226F77A000466CD5 /* LoginViewController.swift in Sources */,
 				A1843BD02151CE6E00DC79FD /* ViewController.swift in Sources */,
 				A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */,
 				A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */,
+				DE368649226F781600466CD5 /* Studet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
