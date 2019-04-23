@@ -35,7 +35,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="hYy-VF-37l" eventType="touchUpInside" id="lxP-JI-i2T"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="LoginSeque" id="Pf0-z3-Cjr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HAC Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyI-ud-erH">
@@ -67,6 +66,7 @@
                         <outlet property="loginButton" destination="7Nz-VR-IrN" id="hsR-QC-fS0"/>
                         <outlet property="passwordTextField" destination="uug-AC-aCI" id="hYR-lF-7Jk"/>
                         <outlet property="usernameTextField" destination="Ox3-X8-68m" id="0hN-85-vi2"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="LoginSegue" id="z2z-ir-Bg8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRV-yg-yQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>

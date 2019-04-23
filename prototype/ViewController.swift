@@ -109,11 +109,13 @@ class ViewController: UIViewController , WKNavigationDelegate{
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare")
         if(segue.identifier == "LoginSegue"){
             let loginViewController = sender as! LoginViewController
             student = loginViewController.student
+            print("student assigned")
         }
-        
+        print(student)
     }
     
 }
