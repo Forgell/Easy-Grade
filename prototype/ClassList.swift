@@ -8,6 +8,10 @@
 
 import Foundation
 
-class Grades {
+class ClassList {
+    var classes: [String: Double] = ["Hi": 72.3, "Test": 84.5]
     
+    init(classes: [String: Double]){
+        self.classes = classes
+    }
 }
