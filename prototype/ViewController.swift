@@ -54,7 +54,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        //print("loaded \(pageNumber)")
+        print("loaded \(pageNumber)")
         switch(pageNumber){
         case 0:
             webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"Bradford.Q.T\"", completionHandler: nil)
@@ -62,7 +62,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
             webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()" , completionHandler: nil)
             break
         case 1:
-            webView.evaluateJavaScript("document.getElementById(\"hac-Classes\").click()", completionHandler: nil)
+            webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
         case 2:
             scrapeHTML()
             loadClasses()
@@ -95,10 +95,9 @@ class ViewController: UIViewController , WKNavigationDelegate{
     }
     
     func loadClasses(){
-        webView.evaluateJavaScript("string = \"\";for(var i = 0; i < classNum-1; i++){let numOfAssignments = document.getElementById(\"sg-legacy-iframe\").contentWindow.document.getElementById(\"plnMain_rptAssigmnetsByCourse_dgCourseAssignments_\"+i).rows.length;for(var j = 0; j < numOfAssignments; j++){for(var k = 0; k < 6; k++){let temp = document.getElementById(\"sg-legacy-iframe\").contentWindow.document.getElementById(\"plnMain_rptAssigmnetsByCourse_dgCourseAssignments_\"+i).rows.item(j).cells.item(k).innerText.toString();string += temp + \" \";}string += \"\n\";}}") { (tabel, error) in
-            if let tabel = tabel{
-                print(tabel)
-            }
+        webView.evaluateJavaScript("document.getElementsByClassName(\"AssignmentClass\").length") { (innerText, error) in
+            //let classTable = innerText as? String
+            print(innerText!)
         }
         
         
