@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34007EF2227210B2005E282E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34007EF1227210B2005E282E /* MainViewController.swift */; };
+		34007EF4227210EF005E282E /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34007EF3227210EF005E282E /* Grades.swift */; };
 		A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BCD2151CE6E00DC79FD /* AppDelegate.swift */; };
 		A1843BD02151CE6E00DC79FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BCF2151CE6E00DC79FD /* ViewController.swift */; };
 		A1843BD32151CE6E00DC79FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1843BD12151CE6E00DC79FD /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34007EF1227210B2005E282E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		34007EF3227210EF005E282E /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
 		A1843BCA2151CE6D00DC79FD /* prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1843BCD2151CE6E00DC79FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1843BCF2151CE6E00DC79FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				A1843BD62151CEA500DC79FD /* LaunchScreen.storyboard */,
 				A1843BD92151CEA500DC79FD /* Info.plist */,
 				A1BF2A2D2153283F0028A93F /* SchoolClass.swift */,
+				34007EF1227210B2005E282E /* MainViewController.swift */,
+				34007EF3227210EF005E282E /* Grades.swift */,
 			);
 			path = prototype;
 			sourceTree = "<group>";
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34007EF4227210EF005E282E /* Grades.swift in Sources */,
 				A1843BD02151CE6E00DC79FD /* ViewController.swift in Sources */,
 				A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */,
 				A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */,
+				34007EF2227210B2005E282E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
