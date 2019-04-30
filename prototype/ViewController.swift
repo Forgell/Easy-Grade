@@ -97,17 +97,13 @@ class ViewController: UIViewController , WKNavigationDelegate{
     
     func loadClasses(){
         webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
-            let classTable = innerText as? [String]
-            if let classTable = classTable {
-                classTable.forEach({ (ClassItem) in
-                    print(ClassItem)
-                })
+                let classTable = innerText as? [String]
+                if let classTable = classTable {
+                    classTable.forEach({ (ClassItem) in
+                        print(ClassItem)
+                    })
+                }
             }
-        }
-            
-        }
-        
-    
-
+    }
 
 }
