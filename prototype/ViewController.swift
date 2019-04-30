@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import WebKit
 
 class ViewController: UIViewController , WKNavigationDelegate{
@@ -95,17 +96,28 @@ class ViewController: UIViewController , WKNavigationDelegate{
     }
     
     func loadClasses(){
-        webView.evaluateJavaScript("document.getElementsByClassName(\"AssignmentClass\").length") { (innerText, error) in
-            //let classTable = innerText as? String
-            print(innerText!)
+//        webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; var string = \"\"; for(var i = 0; i < length; i++){string+=document.getElementsByClassName(\"AssignmentClass\")[i].innerText;} return string;} getClassesText()") { (innerText, error) in
+//            let classTable = innerText as? String
+//            if let classTable = classTable {
+//                print(classTable)
+//            }
+//        }
+
+        webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; return length;} getClassesText()") { (classesTaken, error) in
+            let classes = classesTaken as? Int
+            if let classCount = classes {
+                print(classCount)
+                for number in 0...classCount {
+                    
+                        
+                }
+            }else {
+                print("Is NIL")
+            }
+            
         }
-        
         
     }
 
 
 }
-
-    
-
-
