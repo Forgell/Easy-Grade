@@ -44,6 +44,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
             break
         case 1:
             if webView.url! == URL(string: "https://hac.friscoisd.org/HomeAccess/Home/WeekView")! {
+                print("Login Success!")
                 webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
             }else {
                 print("Error logging in")
