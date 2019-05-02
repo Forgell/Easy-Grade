@@ -17,9 +17,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
 
     @IBOutlet var webView: WKWebView!
     var pageNumber = 0
-    var rawHtml = ""
-    var classes: [SchoolClass] = []
-    var classLength = -1
+    //var classes: [SchoolClass] = []
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -44,12 +42,18 @@ class ViewController: UIViewController , WKNavigationDelegate{
         case 0:
             webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"" + username! + "\"", completionHandler: nil)
             webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + password! + "\"", completionHandler: nil)
-            webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()" , completionHandler: nil)
+            
+            webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()", completionHandler: nil)
             break
         case 1:
-            webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
+            if webView.url! == URL(string: "https://hac.friscoisd.org/HomeAccess/Home/WeekView")! {
+                webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
+            }else {
+                print("Error logging in")
+                self.performSegue(withIdentifier: "Login", sender: nil)
+            }
+            
         case 2:
-            scrapeHTML()
             loadClasses()
 
         default:
@@ -64,16 +68,6 @@ class ViewController: UIViewController , WKNavigationDelegate{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func scrapeHTML(){
-        webView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
-                                   completionHandler: { (html: Any?, error: Error?) in
-                                    //print(html)
-                                    self.rawHtml = html as! String
-                                    //print(self.rawHtml)
-        })
     }
     
     func loadClasses(){

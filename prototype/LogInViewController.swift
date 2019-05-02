@@ -7,21 +7,52 @@
 //
 
 import UIKit
+import WebKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var Password: UITextField!
     //@IBOutlet weak var LoginButton: UIButton!
     
+    var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.navigationDelegate = self
     }
     
     @IBAction func LoginButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "MainView", sender: self)
+        let myURL = URL(string:"https://hac.friscoisd.org/HomeAccess/Account/LogOn?ReturnUrl=%2fhomeaccess")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+        //self.performSegue(withIdentifier: "MainView", sender: self)
+    }
+    
+    var pageNumber = 0
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("loaded \(pageNumber)")
+        switch(pageNumber){
+        case 0:
+            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"" + Username.text! + "\"", completionHandler: nil)
+            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + Password.text! + "\"", completionHandler: nil)
+            
+            webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()", completionHandler: nil)
+            break
+        case 1:
+            if webView.url! == URL(string: "https://hac.friscoisd.org/HomeAccess/Home/WeekView")! {
+                webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
+            }else {
+                print("Error logging in")
+                self.performSegue(withIdentifier: "Login", sender: nil)
+            }
+        default:
+            print("Hello")
+        }
+        pageNumber = pageNumber + 1
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
