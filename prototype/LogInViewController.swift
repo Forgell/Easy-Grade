@@ -24,6 +24,14 @@ class LogInViewController: UIViewController {
         self.performSegue(withIdentifier: "MainView", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "MainView") {
+            let vc = segue.destination as! ViewController
+            vc.username = Username.text!
+            vc.password = Password.text!
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

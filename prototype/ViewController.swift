@@ -11,6 +11,9 @@ import Foundation
 import WebKit
 
 class ViewController: UIViewController , WKNavigationDelegate{
+    
+    var username: String?
+    var password: String?
 
     @IBOutlet var webView: WKWebView!
     var pageNumber = 0
@@ -20,7 +23,6 @@ class ViewController: UIViewController , WKNavigationDelegate{
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        //webView.uiDelegate = self
         view = webView
         webView.navigationDelegate = self
         pageNumber = 0
@@ -32,24 +34,6 @@ class ViewController: UIViewController , WKNavigationDelegate{
         let myURL = URL(string:"https://hac.friscoisd.org/HomeAccess/Account/LogOn?ReturnUrl=%2fhomeaccess")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
-        
-        //var completionHandler: (() -> Void)? { get set }.
-        /*while(webView.isLoading){
-            sleep(1)
-            print("yo")
-        }*/
-        
-        /*if(!webView.isLoading){
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"Bradford.Q.T\"", completionHandler: nil)
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"famoustrumpet1\"", completionHandler: nil)
-                print("\n\nmade it \n\n")
-        }*/
-        
-        
-        
-    
-        
-        // webVeiw.
     }
     
     
@@ -58,8 +42,8 @@ class ViewController: UIViewController , WKNavigationDelegate{
         print("loaded \(pageNumber)")
         switch(pageNumber){
         case 0:
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"Bradford.Q.T\"", completionHandler: nil)
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"famoustrumpet1\"", completionHandler: nil)
+            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"" + username! + "\"", completionHandler: nil)
+            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + password! + "\"", completionHandler: nil)
             webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()" , completionHandler: nil)
             break
         case 1:
@@ -74,9 +58,6 @@ class ViewController: UIViewController , WKNavigationDelegate{
         
         pageNumber += 1
         
-        
-        
-        //print("\n\nmade it \n\n")
     }
     
     
