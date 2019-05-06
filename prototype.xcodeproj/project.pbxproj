@@ -18,6 +18,7 @@
 		A1843BE32151CEA500DC79FD /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BE22151CEA500DC79FD /* prototypeTests.swift */; };
 		A1843BEE2151CEA500DC79FD /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BED2151CEA500DC79FD /* prototypeUITests.swift */; };
 		A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF2A2D2153283F0028A93F /* SchoolClass.swift */; };
+		BF7F996022809D67004B0D17 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F995F22809D67004B0D17 /* ClassTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A1843BED2151CEA500DC79FD /* prototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeUITests.swift; sourceTree = "<group>"; };
 		A1843BEF2151CEA500DC79FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BF2A2D2153283F0028A93F /* SchoolClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolClass.swift; sourceTree = "<group>"; };
+		BF7F995F22809D67004B0D17 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				34007EF1227210B2005E282E /* MainViewController.swift */,
 				34007EF3227210EF005E282E /* Grades.swift */,
 				3450C226227B47FB002CE2F2 /* LogInViewController.swift */,
+				BF7F995F22809D67004B0D17 /* ClassTableViewCell.swift */,
 			);
 			path = prototype;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				A1843BD02151CE6E00DC79FD /* ViewController.swift in Sources */,
 				3450C227227B47FB002CE2F2 /* LogInViewController.swift in Sources */,
 				A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */,
+				BF7F996022809D67004B0D17 /* ClassTableViewCell.swift in Sources */,
 				A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */,
 				34007EF2227210B2005E282E /* MainViewController.swift in Sources */,
 			);
