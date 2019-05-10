@@ -13,23 +13,31 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var Password: UITextField!
-    //@IBOutlet weak var LoginButton: UIButton!
+    @IBOutlet weak var LoginButton: UIButton!
     
     var webView: WKWebView!
+    var didLoadLoginPage = false
+    var shouldLoginOnLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        LoginButton.loadingIndicator(false)
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.navigationDelegate = self
-    }
-    
-    @IBAction func LoginButtonPressed(_ sender: Any) {
+        
         let myURL = URL(string:"https://hac.friscoisd.org/HomeAccess/Account/LogOn?ReturnUrl=%2fhomeaccess")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
-        //self.performSegue(withIdentifier: "MainView", sender: self)
+    }
+    
+    @IBAction func LoginButtonPressed(_ sender: Any) {
+        LoginButton.loadingIndicator(true)
+        if didLoadLoginPage {
+            login()
+        } else {
+            shouldLoginOnLoad = true
+        }
     }
     
     var pageNumber = 0
@@ -37,30 +45,39 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         print("loaded \(pageNumber)")
         switch(pageNumber){
         case 0:
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"" + Username.text! + "\"", completionHandler: nil)
-            webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + Password.text! + "\"", completionHandler: nil)
-            
-            webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()", completionHandler: nil)
+            didLoadLoginPage = true
+            if shouldLoginOnLoad {
+                login()
+            }
             break
         case 1:
             if webView.url! == URL(string: "https://hac.friscoisd.org/HomeAccess/Home/WeekView")! {
                 print("Login Success!")
                 webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
             }else {
+                LoginButton.loadingIndicator(false)
                 print("Error logging in")
                 self.performSegue(withIdentifier: "Login", sender: nil)
             }
+        case 2:
+            self.performSegue(withIdentifier: "MainView", sender: nil)
         default:
             print("Hello")
         }
         pageNumber = pageNumber + 1
     }
     
+    func login() {
+        webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"" + Username.text! + "\"", completionHandler: nil)
+        webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + Password.text! + "\"", completionHandler: nil)
+        
+        webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()", completionHandler: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "MainView") {
             let vc = segue.destination as! ViewController
-            vc.username = Username.text!
-            vc.password = Password.text!
+            vc.viewFromLogin = webView
         }
     }
     
@@ -74,4 +91,29 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     }
     */
 
+}
+
+
+extension UIButton {
+    func loadingIndicator(_ show: Bool) {
+        let tag = 808404
+        if show {
+            self.isEnabled = false
+            self.alpha = 0.5
+            let indicator = UIActivityIndicatorView()
+            let buttonHeight = self.bounds.size.height
+            let buttonWidth = self.bounds.size.width
+            indicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
+            indicator.tag = tag
+            self.addSubview(indicator)
+            indicator.startAnimating()
+        } else {
+            self.isEnabled = true
+            self.alpha = 1.0
+            if let indicator = self.viewWithTag(tag) as? UIActivityIndicatorView {
+                indicator.stopAnimating()
+                indicator.removeFromSuperview()
+            }
+        }
+    }
 }
