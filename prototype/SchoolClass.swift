@@ -20,7 +20,9 @@ class SchoolClass{
         grades[index] = grade
     }
     
-    
+    func loadAssignment(as_string : String , index: Int){
+        var temp = Assignment(score: <#T##Int#>, maxPoints: <#T##Int#>, type: <#T##String#>, dueDate: <#T##String#>, dateAssigned: <#T##String#>, name: <#T##String#>)
+    }
 }
 
 class Assignment{
