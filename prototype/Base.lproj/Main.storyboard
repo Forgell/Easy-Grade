@@ -81,7 +81,6 @@
                         <outlet property="LoginButton" destination="nbu-Zg-PEv" id="RlX-Xc-5Zu"/>
                         <outlet property="Password" destination="ahZ-yQ-d2W" id="cBS-cg-cfy"/>
                         <outlet property="Username" destination="Pr8-Iz-HRB" id="8ZX-Vo-naG"/>
-                        <outlet property="loginButton" destination="nbu-Zg-PEv" id="pkl-lc-4Jw"/>
                         <outlet property="notificationLabel" destination="FV7-hz-fhl" id="gy4-gC-Ll3"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="MainView" id="IzU-mn-qN5"/>
                     </connections>
@@ -107,7 +106,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNg-Mn-9hE">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNg-Mn-9hE">
                                         <rect key="frame" x="0.0" y="34" width="343" height="600"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <sections/>
