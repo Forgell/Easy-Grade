@@ -22,7 +22,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
             loadClasses(view: view)
             getName(view: view)
         } else {
-            self.performSegue(withIdentifier: "LoginPage", sender: nil)
+            self.performSegue(withIdentifier: "Login", sender: nil)
         }
         
     }
