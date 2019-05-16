@@ -17,6 +17,7 @@
 		A1843BE32151CEA500DC79FD /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BE22151CEA500DC79FD /* prototypeTests.swift */; };
 		A1843BEE2151CEA500DC79FD /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BED2151CEA500DC79FD /* prototypeUITests.swift */; };
 		A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF2A2D2153283F0028A93F /* SchoolClass.swift */; };
+		DE774FF3228DC6C500CB345F /* gradeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE774FF2228DC6C500CB345F /* gradeParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A1843BED2151CEA500DC79FD /* prototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeUITests.swift; sourceTree = "<group>"; };
 		A1843BEF2151CEA500DC79FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BF2A2D2153283F0028A93F /* SchoolClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolClass.swift; sourceTree = "<group>"; };
+		DE774FF2228DC6C500CB345F /* gradeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				A1BF2A2D2153283F0028A93F /* SchoolClass.swift */,
 				34007EF1227210B2005E282E /* MainViewController.swift */,
 				34007EF3227210EF005E282E /* Grades.swift */,
+				DE774FF2228DC6C500CB345F /* gradeParser.swift */,
 			);
 			path = prototype;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				A1843BD02151CE6E00DC79FD /* ViewController.swift in Sources */,
 				A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */,
 				A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */,
+				DE774FF3228DC6C500CB345F /* gradeParser.swift in Sources */,
 				34007EF2227210B2005E282E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7NS4SN92U7;
+				DEVELOPMENT_TEAM = 62SAZ975GK;
 				INFOPLIST_FILE = prototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,7 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7NS4SN92U7;
+				DEVELOPMENT_TEAM = 62SAZ975GK;
 				INFOPLIST_FILE = prototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
