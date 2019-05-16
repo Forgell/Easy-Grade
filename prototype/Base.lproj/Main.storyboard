@@ -139,6 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="RL4-OT-3aF" id="aQy-FG-X7y"/>
                         <segue destination="EXw-MV-lsg" kind="show" identifier="Login" id="5Uk-Py-PqL"/>
                     </connections>
                 </viewController>

@@ -14,11 +14,13 @@ class ViewController: UIViewController , WKNavigationDelegate{
     
     var webView: WKWebView?
     var pageNumber = 0
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let view = webView {
             loadClasses(view: view)
+            getName(view: view)
         } else {
             self.performSegue(withIdentifier: "LoginPage", sender: nil)
         }
@@ -40,6 +42,17 @@ class ViewController: UIViewController , WKNavigationDelegate{
                     })
                 }
             }
+    }
+    
+    func getName(view: WKWebView) {
+        view.evaluateJavaScript("document.getElementsByClassName(\"sg-menu-element-identity\")[0].innerText") { (innerText, error) in
+            let hacName = innerText as? String
+            if let name = hacName {
+                self.nameLabel.text = name
+            } else {
+                self.nameLabel.text = "Unknown User"
+            }
+        }
     }
 
 }

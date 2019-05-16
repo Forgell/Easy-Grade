@@ -86,7 +86,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "MainView") {
             let vc = segue.destination as! ViewController
-            vc.viewFromLogin = webView
+            vc.webView = webView
         }
     }
     
