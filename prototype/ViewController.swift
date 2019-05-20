@@ -36,10 +36,12 @@ class ViewController: UIViewController , WKNavigationDelegate{
     func loadClasses(view: WKWebView){
         view.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
                 let classTable = innerText as? [String]
-                if let classTable = classTable {
-                    classTable.forEach({ (ClassItem) in
+                if let classes = classTable {
+                    classes.forEach({ (ClassItem) in
                         print(ClassItem)
                     })
+                } else {
+                    self.performSegue(withIdentifier: "Login", sender: nil)
                 }
             }
     }
@@ -50,7 +52,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
             if let name = hacName {
                 self.nameLabel.text = name
             } else {
-                self.nameLabel.text = "Unknown User"
+                self.nameLabel.text = "User"
             }
         }
     }
