@@ -78,9 +78,9 @@
                         <viewLayoutGuide key="safeArea" id="k92-gV-SxP"/>
                     </view>
                     <connections>
+                        <outlet property="LoginButton" destination="nbu-Zg-PEv" id="N2m-Gm-Til"/>
                         <outlet property="Password" destination="ahZ-yQ-d2W" id="cBS-cg-cfy"/>
                         <outlet property="Username" destination="Pr8-Iz-HRB" id="8ZX-Vo-naG"/>
-                        <outlet property="loginButton" destination="nbu-Zg-PEv" id="pkl-lc-4Jw"/>
                         <outlet property="notificationLabel" destination="FV7-hz-fhl" id="gy4-gC-Ll3"/>
                         <segue destination="ITC-Ih-q8d" kind="presentation" identifier="MainView" id="Fms-R7-gSJ"/>
                     </connections>

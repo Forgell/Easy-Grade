@@ -46,8 +46,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if ( segue.identifier == "MainView" ){
             let vc = segue.destination as? MainViewController
-            vc?.loadClasses(using: loadClasses())
-            webView = nil
+            //vc?.loadClasses(using: loadClasses())
         }
     }
     
@@ -68,7 +67,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
                 notificationLabel.text = "Login Successful!"
                 print("Login Success!")
                 webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
-                loginButton.isEnabled = true
+                LoginButton.isEnabled = true
                 self.performSegue(withIdentifier: "MainView", sender: self)
                 break
             }else {
@@ -95,6 +94,16 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         }
         return []
     }
+    
+    func login() {
+        notificationLabel.textColor = UIColor(displayP3Red: CGFloat(255), green: CGFloat(255), blue: CGFloat(0), alpha: CGFloat(255))
+        notificationLabel.text = "Attempting Login..."
+        webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_UserName\").value = \"" + Username.text! + "\"", completionHandler: nil)
+        webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + Password.text! + "\"", completionHandler: nil)
+        
+        webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()", completionHandler: nil)
+    }
+
     
     /*
     // MARK: - Navigation
