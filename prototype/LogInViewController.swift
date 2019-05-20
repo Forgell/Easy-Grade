@@ -39,6 +39,14 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         webView.load(myRequest)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if ( segue.identifier == "MainView" ){
+            let vc = segue.destination as? MainViewController
+            vc?.loadClasses(using: loadClasses())
+            webView = nil
+        }
+    }
+    
     var pageNumber = 0
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("loaded page \(pageNumber)")
@@ -57,9 +65,9 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
                 notificationLabel.text = "Login Successful!"
                 print("Login Success!")
                 webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
-                loadClasses()
                 loginButton.isEnabled = true
                 self.performSegue(withIdentifier: "MainView", sender: self)
+                break
             }else {
                 notificationLabel.textColor = UIColor(displayP3Red: CGFloat(255), green: CGFloat(0), blue: CGFloat(0), alpha: CGFloat(255))
                 notificationLabel.text = "There was an error logging in."
@@ -72,15 +80,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         pageNumber = pageNumber + 1
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "MainView") {
-            let vc = segue.destination as! ViewController
-            vc.username = Username.text!
-            vc.password = Password.text!
-        }
-    }
-    
-    func loadClasses(){
+    func loadClasses() -> [SchoolClass] {
         webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
             let classTable = innerText as? [String]
             if let classTable = classTable {
@@ -89,6 +89,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
                 })
             }
         }
+        return []
     }
     
     /*

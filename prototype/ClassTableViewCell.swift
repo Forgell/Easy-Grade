@@ -10,6 +10,9 @@ import UIKit
 
 class ClassTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var gradeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +23,7 @@ class ClassTableViewCell: UITableViewCell {
         
     }
 
+    func update( with _class: SchoolClass ) {
+        // Code to fill labels with class information
+    }
 }
