@@ -9,13 +9,13 @@
 import UIKit
 
 class ClassTableView: UITableView {
-    var classes: [SchoolClass] = []
+    var student: Student = Student()
     
     override func cellForRow(at indexPath: IndexPath) -> UITableViewCell? {
         let cell = dequeueReusableCell(withIdentifier: "ClassCell", for: indexPath) as! ClassTableViewCell
         
         // Configure cell
-        let _class = classes[indexPath.row]
+        let _class = student.sections[indexPath.row]
         cell.update(with: _class)
         cell.showsReorderControl = false
         

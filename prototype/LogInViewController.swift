@@ -20,6 +20,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     var didLoadLoginPage = false
     var shouldLoginOnLoad = false
     var studentName: String = "User"
+    var student = Student()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +47,12 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let view = webView {
-            //loadClasses(view: view) *move this before performsegue
             if ( segue.identifier == "MainView" ){
                 let vc = segue.destination as? MainViewController
                 studentName = getName(view: webView)
                 print("Name retrieved")
                 vc?.prepare(for: segue, sender: self)
+                vc?.student = self.student
             }
         }
     }
@@ -74,6 +75,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
                 print("Login Success!")
                 //webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
                 LoginButton.isEnabled = true
+                loadClasses()
                 self.performSegue(withIdentifier: "MainView", sender: self)
                 break
             }else {
@@ -89,13 +91,13 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         pageNumber = pageNumber + 1
     }
     
-    func loadClasses(view: WKWebView){
-        view.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
-            let classTable = innerText as? [String]
-            if let classes = classTable {
-                classes.forEach({ (ClassItem) in
-                    print(ClassItem)
-                })
+    func loadClasses(){
+        webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
+            let classTable = innerText as? [String] /** Didn't enter closure?  test for next class */
+            if let classTable = classTable {
+                let gp = gradeParser(classes: classTable)
+                gp.parse()
+                self.student = gp.student
             }
         }
     }

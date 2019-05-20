@@ -23,7 +23,7 @@ class ClassTableViewCell: UITableViewCell {
         
     }
 
-    func update( with _class: SchoolClass ) {
+    func update( with class: Section ) {
         // Code to fill labels with class information
     }
 }
