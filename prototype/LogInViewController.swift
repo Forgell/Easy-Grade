@@ -19,6 +19,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var didLoadLoginPage = false
     var shouldLoginOnLoad = false
+    var studentName: String = "User"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,14 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if ( segue.identifier == "MainView" ){
-            let vc = segue.destination as? MainViewController
-            //vc?.loadClasses(using: loadClasses())
+        if let view = webView {
+            //loadClasses(view: view) *move this before performsegue
+            if ( segue.identifier == "MainView" ){
+                let vc = segue.destination as? MainViewController
+                studentName = getName(view: webView)
+                print("Name retrieved")
+                vc?.prepare(for: segue, sender: self)
+            }
         }
     }
     
@@ -66,7 +72,7 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
                 notificationLabel.textColor = UIColor(displayP3Red: CGFloat(0), green: CGFloat(255), blue: CGFloat(0), alpha: CGFloat(255))
                 notificationLabel.text = "Login Successful!"
                 print("Login Success!")
-                webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
+                //webView.evaluateJavaScript("window.location = \"https://hac.friscoisd.org/HomeAccess/Content/Student/Assignments.aspx\"", completionHandler: nil)
                 LoginButton.isEnabled = true
                 self.performSegue(withIdentifier: "MainView", sender: self)
                 break
@@ -83,16 +89,15 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         pageNumber = pageNumber + 1
     }
     
-    func loadClasses() -> [SchoolClass] {
-        webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
+    func loadClasses(view: WKWebView){
+        view.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
             let classTable = innerText as? [String]
-            if let classTable = classTable {
-                classTable.forEach({ (ClassItem) in
+            if let classes = classTable {
+                classes.forEach({ (ClassItem) in
                     print(ClassItem)
                 })
             }
         }
-        return []
     }
     
     func login() {
@@ -102,6 +107,17 @@ class LogInViewController: UIViewController, WKNavigationDelegate {
         webView.evaluateJavaScript("document.getElementById(\"LogOnDetails_Password\").value = \"" + Password.text! + "\"", completionHandler: nil)
         
         webView.evaluateJavaScript("document.getElementsByClassName(\"sg-button sg-logon-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\")[0].click()", completionHandler: nil)
+    }
+    
+    func getName(view: WKWebView) -> String {
+        var name = "User"
+        view.evaluateJavaScript("document.getElementsByClassName(\"sg-menu-element-identity\")[0].innerText") { (innerText, error) in
+            let hacName = innerText as? String
+            if let n = hacName {
+                name = n
+            }
+        }
+        return name
     }
 
     

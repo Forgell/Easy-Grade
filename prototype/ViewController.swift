@@ -19,7 +19,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         if let view = webView {
-            loadClasses(view: view)
+            //loadClasses(view: view)
             getName(view: view)
         } else {
             self.performSegue(withIdentifier: "Login", sender: nil)
@@ -27,23 +27,8 @@ class ViewController: UIViewController , WKNavigationDelegate{
         
     }
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func loadClasses(view: WKWebView){
-        view.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
-                let classTable = innerText as? [String]
-                if let classes = classTable {
-                    classes.forEach({ (ClassItem) in
-                        print(ClassItem)
-                    })
-                } else {
-                    self.performSegue(withIdentifier: "Login", sender: nil)
-                }
-            }
     }
     
     func getName(view: WKWebView) {

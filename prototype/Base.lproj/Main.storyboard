@@ -200,6 +200,7 @@
                         <viewLayoutGuide key="safeArea" id="BHe-h8-rrB"/>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="RL4-OT-3aF" id="2Pa-VH-gKf"/>
                         <outlet property="tableView" destination="eNg-Mn-9hE" id="FgA-Ql-3Dx"/>
                     </connections>
                 </viewController>
