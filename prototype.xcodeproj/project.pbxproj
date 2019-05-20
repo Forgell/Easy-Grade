@@ -16,7 +16,7 @@
 		A1843BD82151CEA500DC79FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1843BD62151CEA500DC79FD /* LaunchScreen.storyboard */; };
 		A1843BE32151CEA500DC79FD /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BE22151CEA500DC79FD /* prototypeTests.swift */; };
 		A1843BEE2151CEA500DC79FD /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1843BED2151CEA500DC79FD /* prototypeUITests.swift */; };
-		A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF2A2D2153283F0028A93F /* SchoolClass.swift */; };
+		A1BF2A2E2153283F0028A93F /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF2A2D2153283F0028A93F /* Student.swift */; };
 		DE774FF3228DC6C500CB345F /* gradeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE774FF2228DC6C500CB345F /* gradeParser.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		A1843BE92151CEA500DC79FD /* prototypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototypeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1843BED2151CEA500DC79FD /* prototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeUITests.swift; sourceTree = "<group>"; };
 		A1843BEF2151CEA500DC79FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1BF2A2D2153283F0028A93F /* SchoolClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolClass.swift; sourceTree = "<group>"; };
+		A1BF2A2D2153283F0028A93F /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		DE774FF2228DC6C500CB345F /* gradeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradeParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +111,7 @@
 				A1843BD42151CEA500DC79FD /* Assets.xcassets */,
 				A1843BD62151CEA500DC79FD /* LaunchScreen.storyboard */,
 				A1843BD92151CEA500DC79FD /* Info.plist */,
-				A1BF2A2D2153283F0028A93F /* SchoolClass.swift */,
+				A1BF2A2D2153283F0028A93F /* Student.swift */,
 				34007EF1227210B2005E282E /* MainViewController.swift */,
 				34007EF3227210EF005E282E /* Grades.swift */,
 				DE774FF2228DC6C500CB345F /* gradeParser.swift */,
@@ -270,7 +270,7 @@
 			files = (
 				34007EF4227210EF005E282E /* Grades.swift in Sources */,
 				A1843BD02151CE6E00DC79FD /* ViewController.swift in Sources */,
-				A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */,
+				A1BF2A2E2153283F0028A93F /* Student.swift in Sources */,
 				A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */,
 				DE774FF3228DC6C500CB345F /* gradeParser.swift in Sources */,
 				34007EF2227210B2005E282E /* MainViewController.swift in Sources */,

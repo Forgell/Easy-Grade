@@ -15,7 +15,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
     @IBOutlet var webView: WKWebView!
     var pageNumber = 0
     var rawHtml = ""
-    var classes: [SchoolClass] = []
+    var classes: [Student] = []
     var classLength = -1
     var timer = 0
     override func loadView() {
@@ -100,7 +100,9 @@ class ViewController: UIViewController , WKNavigationDelegate{
         webView.evaluateJavaScript("function getClassesText(){var length = document.getElementsByClassName(\"AssignmentClass\").length; var arr = []; for(var i = 0; i < length; i++){arr.push(document.getElementsByClassName(\"AssignmentClass\")[i].innerText);} return arr;} getClassesText()") { (innerText, error) in
             let classTable = innerText as? [String]
             if let classTable = classTable {
-                
+                var gp = gradeParser(classes: classTable)
+                gp.parse()
+                print(gp.student.sections[2].assignments[3].score)
             }
         }
 

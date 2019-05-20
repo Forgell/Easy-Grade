@@ -27,9 +27,13 @@ class Section{
         assignments = []
     }
     
-    init(name: String, grade: Double, assignments: [Assignment]){
+    init(name: String, grade: String, assignments: [Assignment]){
         self.name = name
-        self.grade = grade
+        if let g = Double(grade){
+            self.grade = g
+        }else{
+            self.grade = 0.0
+        }
         self.assignments = assignments
     }
 }
@@ -42,9 +46,17 @@ class Assignment{
     var dateAssigned: String
     var name: String
     
-    init(score: Double, maxPoints:Double, type:String, dueDate:String, dateAssigned:String, name:String){
-        self.score = score
-        self.maxPoints = maxPoints
+    init(score: String, maxPoints:String, type:String, dueDate:String, dateAssigned:String, name:String){
+        if let temp_score = Double(score){
+            self.score = temp_score
+        }else{
+            self.score = 0.0
+        }
+        if let temp_max = Double(maxPoints){
+            self.maxPoints = temp_max
+        }else{
+            self.maxPoints = 0.0
+        }
         self.type = type
         self.dueDate = dueDate
         self.dateAssigned = dateAssigned
