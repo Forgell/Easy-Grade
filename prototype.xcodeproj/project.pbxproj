@@ -19,6 +19,7 @@
 		BF2A37E3228DD141004AADA6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2A37E2228DD141004AADA6 /* MainViewController.swift */; };
 		BF7F996022809D67004B0D17 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F995F22809D67004B0D17 /* ClassTableViewCell.swift */; };
 		BF7F996422809F47004B0D17 /* ClassTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F996322809F47004B0D17 /* ClassTableView.swift */; };
+		BF985D64229309EC00404127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF985D63229309EC00404127 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		BF2A37E2228DD141004AADA6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF7F995F22809D67004B0D17 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		BF7F996322809F47004B0D17 /* ClassTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableView.swift; sourceTree = "<group>"; };
+		BF985D63229309EC00404127 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				BF2A37E2228DD141004AADA6 /* MainViewController.swift */,
 				BF7F996322809F47004B0D17 /* ClassTableView.swift */,
 				BF7F995F22809D67004B0D17 /* ClassTableViewCell.swift */,
+				BF985D63229309EC00404127 /* ViewController.swift */,
 			);
 			path = prototype;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				3450C227227B47FB002CE2F2 /* LogInViewController.swift in Sources */,
 				A1BF2A2E2153283F0028A93F /* SchoolClass.swift in Sources */,
 				BF7F996022809D67004B0D17 /* ClassTableViewCell.swift in Sources */,
+				BF985D64229309EC00404127 /* ViewController.swift in Sources */,
 				A1843BCE2151CE6E00DC79FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
