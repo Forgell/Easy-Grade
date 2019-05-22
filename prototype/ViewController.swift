@@ -42,9 +42,7 @@ class ViewController: UIViewController , WKNavigationDelegate{
                         print("Assignments amount: \(assignments.count)")
                         
                         for assignment in assignments {
-                            if let score = assignment["Score"]! {
-                                print("Assignment score: \(score)")
-                            }
+                            print(assignment)
                         }
                     }
                 } else {
