@@ -35,36 +35,21 @@ class ViewController: UIViewController , WKNavigationDelegate{
     
     func loadClasses(view: WKWebView){
         view.evaluateJavaScript("function getClassesText(){ var frame = document.getElementsByClassName(\"sg-legacy-iframe\")[0].contentDocument.getElementsByClassName(\"AssignmentClass\"); var obj = {}; for(var i = 0; i < frame.length; i++){ var className = frame[i].getElementsByClassName(\"sg-header-heading\")[0].innerText; obj[className] = []; var assignments = frame[i].getElementsByClassName(\"sg-asp-table-data-row\"); for (var x = 0; x < assignments.length; x++) { let assignmentTable = assignments[x].getElementsByTagName(\"TD\"); let assignment = { \"Due\": assignmentTable[0].innerText, \"Name\": assignmentTable[2].innerText, \"Category\": assignmentTable[3].innerText, \"Score\": assignmentTable[4].innerText, \"TotalPossible\": assignmentTable[5].innerText, }; if(assignment.Due !== \"Daily\" && assignment.Due !== \"Minor Grades\" && assignment.Due !== \"Major Grades\") { obj[className].push(assignment); } } } return obj; } getClassesText()") { (innerText, error) in
-            let classTable = innerText as? [String: NSArray]
+            let classTable = innerText as? [String: [AnyObject]]
                 if let classes = classTable {
                     for (className, assignments) in classes {
                         print("Class Name: \(className)")
                         print("Assignments amount: \(assignments.count)")
-                        if assignments.count > 0 {
-                            var i = 1
-                            for documents in assignments {
-                                let assignment = documents as? [String: Any]
-                                if let assignment = assignment {
-                                    if let score = assignment["Score"] {
-                                        print("Assignment \(i)'s Grade: \(score)")
-                                        i = i + 1
-                                    } else {
-                                        print("")
-                                    }
-                                    
-                                } else {
-                                    print("Error loading an assignment")
-                                }
+                        
+                        for assignment in assignments {
+                            if let score = assignment["Score"]! {
+                                print("Assignment score: \(score)")
                             }
                         }
                     }
                 } else {
                     self.performSegue(withIdentifier: "Login", sender: nil)
                 }
-            
-            if let error = error {
-                print(error)
-            }
             }
     }
     
