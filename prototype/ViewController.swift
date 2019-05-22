@@ -40,7 +40,11 @@ class ViewController: UIViewController , WKNavigationDelegate{
                     for (className, assignments) in classes {
                         print("Class Name: \(className)")
                         print("Assignments amount: \(assignments.count)")
-                        
+                        if assignments.count > 0 {
+                            for i in 0...assignments.count-1 {
+                                print("Assignment \(i+1): \(assignments[i])")
+                            }
+                        }
                     }
                 } else {
                     self.performSegue(withIdentifier: "Login", sender: nil)
