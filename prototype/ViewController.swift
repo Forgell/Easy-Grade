@@ -45,8 +45,13 @@ class ViewController: UIViewController , WKNavigationDelegate{
                             for documents in assignments {
                                 let assignment = documents as? [String: Any]
                                 if let assignment = assignment {
-                                    print("Assignment \(i)'s Grade: \(assignment["Score"]!)")
-                                    i = i + 1
+                                    if let score = assignment["Score"] {
+                                        print("Assignment \(i)'s Grade: \(score)")
+                                        i = i + 1
+                                    } else {
+                                        print("")
+                                    }
+                                    
                                 } else {
                                     print("Error loading an assignment")
                                 }
