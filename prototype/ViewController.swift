@@ -38,8 +38,8 @@ class ViewController: UIViewController , WKNavigationDelegate{
             let classTable = innerText as? [String: [AnyObject]]
                 if let classes = classTable {
                     for (className, assignments) in classes {
-                        print("Class Name: \(className)")
-                        print("Assignments amount: \(assignments.count)")
+                        print("\n\nClass Name: \(className)")
+                        print("Assignments amount: \(assignments.count)\n")
                         
                         for assignment in assignments {
                             print(assignment)
